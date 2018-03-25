@@ -1,0 +1,7 @@
+<div class="row">
+  <p class="col-md-12"><?=$data['page']['user_name']?> | <?=$data['page']['user_email']?></p>
+  <p class="col-md-12"><?=$data['page']['task_text']?></p>
+  <?php if($data['page']['task_img']) { ?>
+  <p class="col-md-12"><img src="<?=$data['page']['task_img']?>"></p>
+  <?php } ?>
+</div>

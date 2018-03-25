@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12"><p class="lead">Edit task</p></div>
+</div>
+<form action="/admin/tasks/save" method="POST">
+  <fieldset>
+    <input type="hidden" name="id" value="<?=$data['task']['id']?>">
+    <div class="form-group">
+      <label for="user_name">Name</label>
+      <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Name" value="<?=$data['task']['user_name']?>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="user_email">Email address</label>
+      <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Enter email" value="<?=$data['task']['user_email']?>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="task_text">Task text</label>
+      <textarea class="form-control" name="task_text" id="task_text" rows="3" required><?=$data['task']['task_text']?></textarea>
+    </div>
+    <div class="form-group">
+      <label>File img</label>
+      <?php if($data['task']['task_img']) { ?>
+      <div>
+      <img src="/public/img/<?=$data['task']['task_img']?>">
+      </div>
+      <?php } else { ?>
+      <p>Image absent</p>
+      <?php } ?>
+    </div>
+    <div class="form-group">
+      <label for="task_status">Status?</label>
+      <input type="checkbox" name="task_status" id="task_status" <?php if($data['task']['task_status']) { ?> checked="checked" <?php } ?> >
+    </div>
+  </fieldset>
+  <button type="submit" name="save" class="btn btn-primary">Save</button>
+
+</form>

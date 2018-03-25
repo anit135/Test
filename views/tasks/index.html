@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-6"><p class="lead">Tasks</p></div>
+  <div class="col-md-6">
+    <div id="sort">
+      Name: <input type="radio" name="sort_by" value="user_name"/>
+      Email: <input type="radio" name="sort_by" value="user_email"/>
+      Status: <input type="radio" name="sort_by" value="task_status"/>
+      No sorting: <input type="radio" name="sort_by" value="" checked/>
+    </div>
+  </div>
+</div>
+<div id="tasks">
+  <?php foreach($data['tasks'] as $task_data) { ?>
+  <div class="row">
+    <p class="col-md-12"><?=$task_data['user_name']?> | <?=$task_data['user_email']?> |
+      <?php if($task_data['task_status']==0) { ?> <i class="fa fa-question" aria-hidden="true"></i>
+      <?php } else { ?> <i class="fa fa-check" aria-hidden="true"></i> <?php } ?>
+    </p>
+    <p class="col-md-12"><?=$task_data['task_text']?></p>
+    <?php if($task_data['task_img']) { ?>
+    <p class="col-md-12"><img src="/public/img/<?=$task_data['task_img']?>"></p>
+    <?php } ?>
+  </div>
+  <hr>
+  <?php } ?>
+</div>
+<div class="row">
+  <ul class="pagination pagination-sm">
+    <li class="page-item disabled">
+      <a class="page-link" data-prev-page-number="1">&laquo;</a>
+    </li>
+    <?php for($page=1; $page<=$data['count']; $page++){ ?>
+    <li class="page-item <?php if($data['pag_now']==$page) { ?> active <?php } ?>">
+      <a class="page-link" data-page-number="<?= $page ?>"><?= $page ?></a>
+    </li>
+    <?php } ?>
+    <li class="page-item ">
+      <a class="page-link" data-next-page-number="2">&raquo;</a>
+    </li>
+  </ul>
+</div>
+
+

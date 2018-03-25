@@ -1,0 +1,21 @@
+li.active .page-link:hover {
+  color: #fff;
+  background-color: #0056b3;
+}
+
+.fa-check, .fa-question {
+  color: #007bff;
+}
+
+.modal img{
+  max-width:180px;
+}
+
+.navbar {
+  justify-content: space-between;
+}
+
+.alert {
+  width: 400px;
+  margin-top: 25px;
+}
